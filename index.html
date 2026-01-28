@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMI Badge Generator — Human Index Standard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #dfe6ed;
+            --bg-header: #e8eef4;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #c9d4e0;
+            --accent: #1565C0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-body);
+            min-height: 100vh;
+        }
+        
+        /* Top Navigation Bar */
+        .top-bar {
+            background: #1e293b;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar-brand {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .top-bar-brand:hover {
+            opacity: 0.9;
+        }
+        
+        .top-bar-links {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .top-bar-link {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        
+        .top-bar-link:hover {
+            color: white;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-header);
+            border-bottom: 1px solid var(--border);
+            padding: 32px 20px;
+            text-align: center;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header-subtext {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 12px auto 0;
+            opacity: 0.85;
+        }
+        
+        /* Main layout */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        @media (max-width: 800px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .card h2 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        
+        /* Level Options */
+        .level-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .level-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        
+        .level-option:hover {
+            border-color: #94a3b8;
+        }
+        
+        .level-option.selected {
+            border-color: var(--accent);
+            background: #f0f7ff;
+        }
+        
+        .level-option input {
+            display: none;
+        }
+        
+        .level-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .level-option.l0 .level-number { background: var(--color-0, #2E7D32); }
+        .level-option.l1 .level-number { background: var(--color-1, #1565C0); }
+        .level-option.l2 .level-number { background: var(--color-2, #00838F); }
+        .level-option.l3 .level-number { background: var(--color-3, #607D8B); }
+        
+        .level-info h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        
+        .level-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .option-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        
+        .option-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        .option-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Theme Preview */
+        .theme-preview {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f1f5f9;
+            border-radius: 6px;
+        }
+        
+        .theme-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .theme-preview.editorial-preview {
+            justify-content: center;
+        }
+        
+        .theme-preview.editorial-preview .theme-dot {
+            background: #6b7280 !important;
+            width: 60px;
+        }
+        
+        /* Placement Note */
+        .placement-note {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .placement-note h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .placement-note p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* Preview */
+        .preview-section .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .preview-area {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 32px;
+            margin-bottom: 20px;
+            min-height: 100px;
+            display: flex;
+            border: 1px dashed var(--border);
+        }
+        
+        .preview-area.align-left { justify-content: flex-start; }
+        .preview-area.align-center { justify-content: center; }
+        .preview-area.align-right { justify-content: flex-end; }
+        
+        /* Badge Styles */
+        .humi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: inherit;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        
+        .humi-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .humi-badge.l0 { background: var(--color-0, #2E7D32); }
+        .humi-badge.l1 { background: var(--color-1, #1565C0); }
+        .humi-badge.l2 { background: var(--color-2, #00838F); }
+        .humi-badge.l3 { background: var(--color-3, #607D8B); }
+        
+        .humi-badge-level {
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .humi-badge-divider {
+            width: 1px;
+            height: 16px;
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .humi-badge-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .humi-badge-link {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            margin-left: 2px;
+        }
+        
+        /* Editorial Badge Style */
+        .humi-badge.editorial {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            box-shadow: none;
+            padding: 8px 14px;
+        }
+        
+        .humi-badge.editorial:hover {
+            background: #f9fafb;
+            box-shadow: none;
+            transform: none;
+        }
+        
+        .humi-badge.editorial .humi-badge-level {
+            color: #374151;
+        }
+        
+        .humi-badge.editorial .humi-badge-divider {
+            background: #d1d5db;
+        }
+        
+        .humi-badge.editorial .humi-badge-name {
+            color: #6b7280;
+        }
+        
+        .humi-badge.editorial .humi-badge-link {
+            color: #9ca3af;
+        }
+        
+        /* Export Section */
+        .export-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .export-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        
+        .export-tab {
+            padding: 8px 14px;
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        
+        .export-tab:hover {
+            background: #f1f5f9;
+        }
+        
+        .export-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .export-content {
+            display: none;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .export-content.active {
+            display: flex;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 12px;
+            color: #e2e8f0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            max-height: 150px;
+        }
+        
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .copy-btn:hover {
+            background: #1256a3;
+        }
+        
+        .export-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+        
+        /* Image buttons */
+        .image-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .download-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .download-btn:hover {
+            background: #1256a3;
+        }
+        
+        .download-btn.secondary {
+            background: #475569;
+        }
+        
+        .download-btn.secondary:hover {
+            background: #334155;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 20px 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-heart {
+            color: #ef4444;
+        }
+        
+        .swiss-flag {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #ff0000;
+            border-radius: 2px;
+            position: relative;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+        
+        .swiss-flag::before,
+        .swiss-flag::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+        
+        .swiss-flag::before {
+            width: 10px;
+            height: 4px;
+            top: 6px;
+            left: 3px;
+        }
+        
+        .swiss-flag::after {
+            width: 4px;
+            height: 10px;
+            top: 3px;
+            left: 6px;
+        }
+        
+        /* Canvas */
+        #export-canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" class="top-bar-brand">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            HUMI
+        </a>
+        <div class="top-bar-links">
+            <a href="https://github.com/fscheps/humi#the-standard" target="_blank" rel="noopener" class="top-bar-link">
+                📖 What is HUMI?
+            </a>
+            <a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" class="top-bar-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                View on GitHub
+            </a>
+        </div>
+    </nav>
+
+    <header class="header">
+        <span class="header-badge">HUMAN INDEX v1.0</span>
+        <h1>HUMI Badge Generator</h1>
+        <p>Create a badge once, reuse it everywhere. Export as HTML, Markdown, or image and paste into any platform where you publish.</p>
+        <p class="header-subtext">Free forever · No account needed · Works on blogs, newsletters, social media, GitHub, and more</p>
+    </header>
+    
+    <main class="main">
+        <!-- Left: Configuration -->
+        <div class="config-section">
+            <div class="card">
+                <h2>Select Your Level</h2>
+                
+                <div class="level-options">
+                    <label class="level-option l0" onclick="selectLevel(0)">
+                        <input type="radio" name="level" value="0">
+                        <div class="level-number">0</div>
+                        <div class="level-info">
+                            <h3>Human Created</h3>
+                            <p>No AI involved in creation</p>
+                        </div>
+                    </label>
+                    
+                    <label class="level-option l1 selected" onclick="selectLevel(1)">
+                        <input type="radio" name="level" value="1" checked>
+                        <div class="level-number">1</div>
+                        <div class="level-info">
+                            <h3>Human Envisioned</h3>
+                            <p>Human created the thesis. AI helped express it.</p>
+                        </div>
+                    </label>
+                    
+                    <label class="level-option l2" onclick="selectLevel(2)">
+                        <input type="radio" name="level" value="2">
+                        <div class="level-number">2</div>
+                        <div class="level-info">
+                            <h3>Human Directed</h3>
+                            <p>Human steered. AI contributed. Human decided.</p>
+                        </div>
+                    </label>
+                    
+                    <label class="level-option l3" onclick="selectLevel(3)">
+                        <input type="radio" name="level" value="3">
+                        <div class="level-number">3</div>
+                        <div class="level-info">
+                            <h3>Human Reviewed</h3>
+                            <p>AI drafted. Human verified and owns it.</p>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="options-grid">
+                    <div class="option-group">
+                        <label>Theme</label>
+                        <select id="badgeTheme" onchange="updateTheme()">
+                            <option value="trust">Trust (Default)</option>
+                            <option value="ocean">Ocean</option>
+                            <option value="forest">Forest</option>
+                            <option value="sunset">Sunset</option>
+                            <option value="monochrome">Monochrome</option>
+                            <option value="vibrant">Vibrant</option>
+                            <option value="editorial">Editorial (Minimal)</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label>Alignment</label>
+                        <select id="alignment" onchange="updatePreview()">
+                            <option value="left">Left</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="theme-preview" id="themePreview">
+                    <div class="theme-dot" style="background: #2E7D32;"></div>
+                    <div class="theme-dot" style="background: #1565C0;"></div>
+                    <div class="theme-dot" style="background: #00838F;"></div>
+                    <div class="theme-dot" style="background: #607D8B;"></div>
+                </div>
+                
+                <div class="options-grid" style="margin-top: 16px;">
+                    <div class="option-group">
+                        <label>Show Link</label>
+                        <select id="showLink" onchange="updatePreview()">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="option-group"></div>
+                </div>
+                
+                <div class="placement-note">
+                    <h4>📍 Placement</h4>
+                    <p>Place above or immediately after your title — never at the bottom.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right: Preview & Export -->
+        <div class="preview-section">
+            <div class="card">
+                <h2>Preview</h2>
+                
+                <div class="preview-area align-left" id="previewArea">
+                    <a href="https://github.com/fscheps/humi" class="humi-badge l1" id="badgePreview" target="_blank" rel="noopener">
+                        <span class="humi-badge-level">HUMI 1</span>
+                        <span class="humi-badge-divider"></span>
+                        <span class="humi-badge-name">Human Envisioned</span>
+                        <span class="humi-badge-link" id="badgeLinkText">↗</span>
+                    </a>
+                </div>
+                
+                <div class="export-section">
+                    <div class="export-tabs">
+                        <button class="export-tab active" onclick="switchTab('html')">HTML</button>
+                        <button class="export-tab" onclick="switchTab('markdown')">Markdown</button>
+                        <button class="export-tab" onclick="switchTab('text')">Text</button>
+                        <button class="export-tab" onclick="switchTab('image')">Image</button>
+                    </div>
+                    
+                    <div class="export-content active" id="tab-html">
+                        <div class="code-block" id="htmlCode"></div>
+                        <button class="copy-btn" onclick="copyCode('html')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copy
+                        </button>
+                        <p class="export-note"><strong>Works on:</strong> WordPress, Ghost, Webflow, Substack, custom sites</p>
+                    </div>
+                    
+                    <div class="export-content" id="tab-markdown">
+                        <div class="code-block" id="markdownCode"></div>
+                        <button class="copy-btn" onclick="copyCode('markdown')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copy
+                        </button>
+                        <p class="export-note"><strong>Works on:</strong> GitHub, Reddit, Dev.to, Notion</p>
+                    </div>
+                    
+                    <div class="export-content" id="tab-text">
+                        <div class="code-block" id="textCode"></div>
+                        <button class="copy-btn" onclick="copyCode('text')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copy
+                        </button>
+                        <p class="export-note"><strong>Works on:</strong> LinkedIn, X/Twitter, emails, comments</p>
+                    </div>
+                    
+                    <div class="export-content" id="tab-image">
+                        <div class="image-buttons">
+                            <button class="download-btn" onclick="downloadPNG()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Download PNG
+                            </button>
+                            <button class="download-btn secondary" onclick="downloadSVG()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Download SVG
+                            </button>
+                        </div>
+                        <p class="export-note"><strong>PNG:</strong> Works everywhere (social media, email, any platform)</p>
+                        <p class="export-note"><strong>SVG:</strong> Vector, sharp at any size (blogs, websites)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p><strong>HUMI</strong> — Human Index v1.0 · <a href="https://github.com/fscheps/humi" target="_blank" rel="noopener">GitHub</a></p>
+        <p style="margin-top: 8px;">Created with <span class="footer-heart">♥</span> in <span class="swiss-flag"></span> Switzerland by <a href="https://x.com/fertech" target="_blank" rel="noopener">Fernando Scheps</a></p>
+    </footer>
+    
+    <canvas id="export-canvas"></canvas>
+    
+    <script>
+        // Theme definitions
+        const themes = {
+            trust: {
+                name: 'Trust',
+                colors: ['#2E7D32', '#1565C0', '#00838F', '#607D8B'],
+                isEditorial: false
+            },
+            ocean: {
+                name: 'Ocean',
+                colors: ['#0277BD', '#0288D1', '#0097A7', '#546E7A'],
+                isEditorial: false
+            },
+            forest: {
+                name: 'Forest',
+                colors: ['#2E7D32', '#388E3C', '#43A047', '#66BB6A'],
+                isEditorial: false
+            },
+            sunset: {
+                name: 'Sunset',
+                colors: ['#E65100', '#F57C00', '#FB8C00', '#FF9800'],
+                isEditorial: false
+            },
+            monochrome: {
+                name: 'Monochrome',
+                colors: ['#212121', '#424242', '#616161', '#757575'],
+                isEditorial: false
+            },
+            vibrant: {
+                name: 'Vibrant',
+                colors: ['#D32F2F', '#7B1FA2', '#1976D2', '#388E3C'],
+                isEditorial: false
+            },
+            editorial: {
+                name: 'Editorial',
+                colors: ['#6b7280', '#6b7280', '#6b7280', '#6b7280'],
+                isEditorial: true
+            }
+        };
+        
+        // Level data - will be updated by theme
+        let levels = {
+            0: { label: 'HUMI 0', name: 'Human Created', color: '#2E7D32' },
+            1: { label: 'HUMI 1', name: 'Human Envisioned', color: '#1565C0' },
+            2: { label: 'HUMI 2', name: 'Human Directed', color: '#00838F' },
+            3: { label: 'HUMI 3', name: 'Human Reviewed', color: '#607D8B' }
+        };
+        
+        let currentLevel = 1;
+        let currentTheme = 'trust';
+        
+        function updateTheme() {
+            currentTheme = document.getElementById('badgeTheme').value;
+            const theme = themes[currentTheme];
+            
+            // Update CSS variables
+            document.documentElement.style.setProperty('--color-0', theme.colors[0]);
+            document.documentElement.style.setProperty('--color-1', theme.colors[1]);
+            document.documentElement.style.setProperty('--color-2', theme.colors[2]);
+            document.documentElement.style.setProperty('--color-3', theme.colors[3]);
+            
+            // Update levels object
+            levels[0].color = theme.colors[0];
+            levels[1].color = theme.colors[1];
+            levels[2].color = theme.colors[2];
+            levels[3].color = theme.colors[3];
+            
+            // Update theme preview
+            const themePreview = document.getElementById('themePreview');
+            const dots = themePreview.querySelectorAll('.theme-dot');
+            
+            if (theme.isEditorial) {
+                themePreview.classList.add('editorial-preview');
+                themePreview.innerHTML = '<div class="theme-dot" style="background: #6b7280;"></div>';
+            } else {
+                themePreview.classList.remove('editorial-preview');
+                if (dots.length === 1) {
+                    themePreview.innerHTML = `
+                        <div class="theme-dot" style="background: ${theme.colors[0]};"></div>
+                        <div class="theme-dot" style="background: ${theme.colors[1]};"></div>
+                        <div class="theme-dot" style="background: ${theme.colors[2]};"></div>
+                        <div class="theme-dot" style="background: ${theme.colors[3]};"></div>
+                    `;
+                } else {
+                    dots.forEach((dot, i) => {
+                        dot.style.background = theme.colors[i];
+                    });
+                }
+            }
+            
+            updatePreview();
+        }
+        
+        function selectLevel(level) {
+            currentLevel = level;
+            document.querySelectorAll('.level-option').forEach((el, i) => {
+                el.classList.toggle('selected', i === level);
+                el.querySelector('input').checked = (i === level);
+            });
+            updatePreview();
+        }
+        
+        function updatePreview() {
+            const level = levels[currentLevel];
+            const alignment = document.getElementById('alignment').value;
+            const showLink = document.getElementById('showLink').value === 'yes';
+            const isEditorial = themes[currentTheme].isEditorial;
+            
+            // Update preview alignment
+            const previewArea = document.getElementById('previewArea');
+            previewArea.className = 'preview-area align-' + alignment;
+            
+            // Update badge
+            const badge = document.getElementById('badgePreview');
+            if (isEditorial) {
+                badge.className = 'humi-badge editorial';
+            } else {
+                badge.className = 'humi-badge l' + currentLevel;
+            }
+            badge.querySelector('.humi-badge-level').textContent = level.label;
+            badge.querySelector('.humi-badge-name').textContent = level.name;
+            document.getElementById('badgeLinkText').style.display = showLink ? 'inline' : 'none';
+            
+            // Update all code outputs
+            updateCodeOutputs();
+        }
+        
+        function updateCodeOutputs() {
+            const level = levels[currentLevel];
+            const showLink = document.getElementById('showLink').value === 'yes';
+            const isEditorial = themes[currentTheme].isEditorial;
+            
+            // HTML - different styles for editorial vs colored
+            let htmlCode;
+            if (isEditorial) {
+                htmlCode = showLink 
+                    ? `<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:transparent;border:1px solid #d1d5db;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+    <span style="font-size:13px;font-weight:700;color:#374151;">${level.label}</span>
+    <span style="width:1px;height:16px;background:#d1d5db;"></span>
+    <span style="font-size:13px;font-weight:500;color:#6b7280;">${level.name}</span>
+    <span style="font-size:12px;color:#9ca3af;">↗</span>
+</a>`
+                    : `<div style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:transparent;border:1px solid #d1d5db;border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+    <span style="font-size:13px;font-weight:700;color:#374151;">${level.label}</span>
+    <span style="width:1px;height:16px;background:#d1d5db;"></span>
+    <span style="font-size:13px;font-weight:500;color:#6b7280;">${level.name}</span>
+</div>`;
+            } else {
+                htmlCode = showLink 
+                    ? `<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:${level.color};border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+    <span style="font-size:13px;font-weight:700;color:white;">${level.label}</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
+    <span style="font-size:13px;font-weight:500;color:white;">${level.name}</span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.7);">↗</span>
+</a>`
+                    : `<div style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:${level.color};border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+    <span style="font-size:13px;font-weight:700;color:white;">${level.label}</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
+    <span style="font-size:13px;font-weight:500;color:white;">${level.name}</span>
+</div>`;
+            }
+            
+            document.getElementById('htmlCode').textContent = htmlCode;
+            
+            // Markdown - for editorial, use a simple text link format
+            let mdCode;
+            if (isEditorial) {
+                mdCode = showLink
+                    ? `**${level.label}** · ${level.name} [↗](https://github.com/fscheps/humi)`
+                    : `**${level.label}** · ${level.name}`;
+            } else {
+                const colorForShield = level.color.replace('#', '');
+                mdCode = showLink
+                    ? `[![${level.label}](https://img.shields.io/badge/${level.label.replace(' ', '_')}-${level.name.replace(' ', '_')}-${colorForShield}?style=for-the-badge)](https://github.com/fscheps/humi)`
+                    : `![${level.label}](https://img.shields.io/badge/${level.label.replace(' ', '_')}-${level.name.replace(' ', '_')}-${colorForShield}?style=for-the-badge)`;
+            }
+            
+            document.getElementById('markdownCode').textContent = mdCode;
+            
+            // Text
+            const textCode = showLink
+                ? `${level.label} · ${level.name} — Learn more: https://github.com/fscheps/humi`
+                : `${level.label} · ${level.name}`;
+            
+            document.getElementById('textCode').textContent = textCode;
+        }
+        
+        function switchTab(tab) {
+            document.querySelectorAll('.export-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.export-content').forEach(c => c.classList.remove('active'));
+            
+            document.querySelector(`.export-tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+        
+        function copyCode(type) {
+            const codeElement = document.getElementById(type + 'Code');
+            navigator.clipboard.writeText(codeElement.textContent).then(() => {
+                const btn = codeElement.parentElement.querySelector('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+                setTimeout(() => btn.innerHTML = originalText, 2000);
+            });
+        }
+        
+        function downloadPNG() {
+            const level = levels[currentLevel];
+            const canvas = document.getElementById('export-canvas');
+            const ctx = canvas.getContext('2d');
+            const isEditorial = themes[currentTheme].isEditorial;
+            
+            // Higher resolution for quality
+            const scale = 3;
+            const padding = 16 * scale;
+            const height = 40 * scale;
+            
+            // Measure text
+            ctx.font = `bold ${13 * scale}px Inter, -apple-system, BlinkMacSystemFont, sans-serif`;
+            const labelWidth = ctx.measureText(level.label).width;
+            ctx.font = `500 ${13 * scale}px Inter, -apple-system, BlinkMacSystemFont, sans-serif`;
+            const nameWidth = ctx.measureText(level.name).width;
+            
+            const dividerWidth = 1 * scale;
+            const gap = 10 * scale;
+            const showLink = document.getElementById('showLink').value === 'yes';
+            const linkWidth = showLink ? 20 * scale : 0;
+            
+            const totalWidth = padding + labelWidth + gap + dividerWidth + gap + nameWidth + linkWidth + padding;
+            
+            canvas.width = totalWidth;
+            canvas.height = height;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, totalWidth, height);
+            
+            const radius = 8 * scale;
+            
+            if (isEditorial) {
+                // Editorial style: white/transparent background with border
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.roundRect(0, 0, totalWidth, height, radius);
+                ctx.fill();
+                
+                ctx.strokeStyle = '#d1d5db';
+                ctx.lineWidth = 1 * scale;
+                ctx.beginPath();
+                ctx.roundRect(0.5 * scale, 0.5 * scale, totalWidth - 1 * scale, height - 1 * scale, radius);
+                ctx.stroke();
+            } else {
+                // Colored style
+                ctx.fillStyle = level.color;
+                ctx.beginPath();
+                ctx.roundRect(0, 0, totalWidth, height, radius);
+                ctx.fill();
+            }
+            
+            let x = padding;
+            
+            // Label
+            ctx.font = `bold ${13 * scale}px Inter, -apple-system, BlinkMacSystemFont, sans-serif`;
+            ctx.fillStyle = isEditorial ? '#374151' : 'white';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(level.label, x, height / 2);
+            x += labelWidth + gap;
+            
+            // Divider
+            ctx.fillStyle = isEditorial ? '#d1d5db' : 'rgba(255,255,255,0.3)';
+            ctx.fillRect(x, (height - 16 * scale) / 2, dividerWidth, 16 * scale);
+            x += dividerWidth + gap;
+            
+            // Name
+            ctx.font = `500 ${13 * scale}px Inter, -apple-system, BlinkMacSystemFont, sans-serif`;
+            ctx.fillStyle = isEditorial ? '#6b7280' : 'white';
+            ctx.fillText(level.name, x, height / 2);
+            x += nameWidth;
+            
+            // Link icon
+            if (showLink) {
+                ctx.font = `${12 * scale}px Inter, sans-serif`;
+                ctx.fillStyle = isEditorial ? '#9ca3af' : 'rgba(255,255,255,0.7)';
+                ctx.fillText('↗', x + 8 * scale, height / 2);
+            }
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = `humi-${currentLevel}-${currentTheme}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadSVG() {
+            const level = levels[currentLevel];
+            const showLink = document.getElementById('showLink').value === 'yes';
+            const isEditorial = themes[currentTheme].isEditorial;
+            
+            const labelWidth = 55;
+            const nameWidth = level.name.length * 8;
+            const linkWidth = showLink ? 20 : 0;
+            const totalWidth = 32 + labelWidth + 10 + 1 + 10 + nameWidth + linkWidth + 16;
+            
+            let svg;
+            if (isEditorial) {
+                svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="40" viewBox="0 0 ${totalWidth} 40">
+  <rect width="${totalWidth}" height="40" rx="8" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  <text x="16" y="24" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#374151">${level.label}</text>
+  <rect x="${16 + labelWidth + 10}" y="12" width="1" height="16" fill="#d1d5db"/>
+  <text x="${16 + labelWidth + 21}" y="24" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="#6b7280">${level.name}</text>
+  ${showLink ? `<text x="${16 + labelWidth + 21 + nameWidth + 6}" y="24" font-family="Inter, sans-serif" font-size="12" fill="#9ca3af">↗</text>` : ''}
+</svg>`;
+            } else {
+                svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="40" viewBox="0 0 ${totalWidth} 40">
+  <rect width="${totalWidth}" height="40" rx="8" fill="${level.color}"/>
+  <text x="16" y="24" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="white">${level.label}</text>
+  <rect x="${16 + labelWidth + 10}" y="12" width="1" height="16" fill="rgba(255,255,255,0.3)"/>
+  <text x="${16 + labelWidth + 21}" y="24" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="white">${level.name}</text>
+  ${showLink ? `<text x="${16 + labelWidth + 21 + nameWidth + 6}" y="24" font-family="Inter, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)">↗</text>` : ''}
+</svg>`;
+            }
+            
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const link = document.createElement('a');
+            link.download = `humi-${currentLevel}-${currentTheme}.svg`;
+            link.href = URL.createObjectURL(blob);
+            link.click();
+        }
+        
+        // Initialize
+        updateTheme();
+        updatePreview();
+    </script>
+</body>
+</html>
