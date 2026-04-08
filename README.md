@@ -103,27 +103,27 @@ Pick your level. Copy. Paste. Done.
 #### For GitHub, Reddit, and Markdown
 
 ```markdown
-[![HUMI 0 - Human Made](https://img.shields.io/badge/HUMI_0-Human_Made-2E7D32?style=for-the-badge)](https://github.com/fscheps/humi)
+[![HUMI 0 - Human Made](https://img.shields.io/badge/HUMI_0-Human_Made-2E7D32?style=for-the-badge)](https://github.com/Humi-Standard/humi)
 ```
 ```markdown
-[![HUMI 1 - Human Led](https://img.shields.io/badge/HUMI_1-Human_Led-1565C0?style=for-the-badge)](https://github.com/fscheps/humi)
+[![HUMI 1 - Human Led](https://img.shields.io/badge/HUMI_1-Human_Led-1565C0?style=for-the-badge)](https://github.com/Humi-Standard/humi)
 ```
 ```markdown
-[![HUMI 2 - Human Guided](https://img.shields.io/badge/HUMI_2-Human_Guided-00838F?style=for-the-badge)](https://github.com/fscheps/humi)
+[![HUMI 2 - Human Guided](https://img.shields.io/badge/HUMI_2-Human_Guided-00838F?style=for-the-badge)](https://github.com/Humi-Standard/humi)
 ```
 ```markdown
-[![HUMI 3 - Human Checked](https://img.shields.io/badge/HUMI_3-Human_Checked-607D8B?style=for-the-badge)](https://github.com/fscheps/humi)
+[![HUMI 3 - Human Checked](https://img.shields.io/badge/HUMI_3-Human_Checked-607D8B?style=for-the-badge)](https://github.com/Humi-Standard/humi)
 ```
 
 **Preview:**
 
-[![HUMI 0 - Human Made](https://img.shields.io/badge/HUMI_0-Human_Made-2E7D32?style=for-the-badge)](https://github.com/fscheps/humi) [![HUMI 1 - Human Led](https://img.shields.io/badge/HUMI_1-Human_Led-1565C0?style=for-the-badge)](https://github.com/fscheps/humi) [![HUMI 2 - Human Guided](https://img.shields.io/badge/HUMI_2-Human_Guided-00838F?style=for-the-badge)](https://github.com/fscheps/humi) [![HUMI 3 - Human Checked](https://img.shields.io/badge/HUMI_3-Human_Checked-607D8B?style=for-the-badge)](https://github.com/fscheps/humi)
+[![HUMI 0 - Human Made](https://img.shields.io/badge/HUMI_0-Human_Made-2E7D32?style=for-the-badge)](https://github.com/Humi-Standard/humi) [![HUMI 1 - Human Led](https://img.shields.io/badge/HUMI_1-Human_Led-1565C0?style=for-the-badge)](https://github.com/Humi-Standard/humi) [![HUMI 2 - Human Guided](https://img.shields.io/badge/HUMI_2-Human_Guided-00838F?style=for-the-badge)](https://github.com/Humi-Standard/humi) [![HUMI 3 - Human Checked](https://img.shields.io/badge/HUMI_3-Human_Checked-607D8B?style=for-the-badge)](https://github.com/Humi-Standard/humi)
 
 #### For WordPress, Ghost, HTML Blogs, and Newsletters
 
 ```html
 <!-- HUMI 0 - Human Made -->
-<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#2E7D32;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#2E7D32;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
     <span style="font-size:13px;font-weight:700;color:white;">HUMI 0</span>
     <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
     <span style="font-size:13px;font-weight:500;color:white;">Human Made</span>
@@ -133,7 +133,7 @@ Pick your level. Copy. Paste. Done.
 
 ```html
 <!-- HUMI 1 - Human Led -->
-<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#1565C0;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#1565C0;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
     <span style="font-size:13px;font-weight:700;color:white;">HUMI 1</span>
     <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
     <span style="font-size:13px;font-weight:500;color:white;">Human Led</span>
@@ -143,7 +143,7 @@ Pick your level. Copy. Paste. Done.
 
 ```html
 <!-- HUMI 2 - Human Guided -->
-<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#00838F;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#00838F;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
     <span style="font-size:13px;font-weight:700;color:white;">HUMI 2</span>
     <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
     <span style="font-size:13px;font-weight:500;color:white;">Human Guided</span>
@@ -153,7 +153,7 @@ Pick your level. Copy. Paste. Done.
 
 ```html
 <!-- HUMI 3 - Human Checked -->
-<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#607D8B;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#607D8B;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">
     <span style="font-size:13px;font-weight:700;color:white;">HUMI 3</span>
     <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>
     <span style="font-size:13px;font-weight:500;color:white;">Human Checked</span>
@@ -166,23 +166,23 @@ Pick your level. Copy. Paste. Done.
 These platforms don't support HTML. Use a text badge at the top of your post:
 
 ```
-HUMI 0 · Human Made — No AI involved. Learn more: github.com/fscheps/humi
+HUMI 0 · Human Made — No AI involved. Learn more: github.com/Humi-Standard/humi
 ```
 ```
-HUMI 1 · Human Led — My ideas. AI helped me write them. Learn more: github.com/fscheps/humi
+HUMI 1 · Human Led — My ideas. AI helped me write them. Learn more: github.com/Humi-Standard/humi
 ```
 ```
-HUMI 2 · Human Guided — I steered. AI contributed. I decided. Learn more: github.com/fscheps/humi
+HUMI 2 · Human Guided — I steered. AI contributed. I decided. Learn more: github.com/Humi-Standard/humi
 ```
 ```
-HUMI 3 · Human Checked — AI drafted. I verified and own it. Learn more: github.com/fscheps/humi
+HUMI 3 · Human Checked — AI drafted. I verified and own it. Learn more: github.com/Humi-Standard/humi
 ```
 
-Or download a PNG badge from the **[Badge Generator](https://fscheps.github.io/humi)** for a visual option.
+Or download a PNG badge from the **[Badge Generator](https://humi-standard.github.io/humi)** for a visual option.
 
 ### Want More Customization?
 
-**→ [Open the Badge Generator](https://fscheps.github.io/humi)** — pick from 7 themes (including minimal "Editorial" for clean blogs), choose alignment, toggle the link, and export as HTML, Markdown, text, or PNG/SVG.
+**→ [Open the Badge Generator](https://humi-standard.github.io/humi)** — pick from 7 themes (including minimal "Editorial" for clean blogs), choose alignment, toggle the link, and export as HTML, Markdown, text, or PNG/SVG.
 
 ---
 

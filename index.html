@@ -7,7 +7,7 @@
     <meta name="description" content="HUMI: An open standard that shows how much of your content is you. Generate a badge in seconds.">
     <meta property="og:title" content="HUMI: The Human Index">
     <meta property="og:description" content="An open standard that shows how much of your content is you. 0 = all you. 3 = mostly AI.">
-    <meta property="og:url" content="https://fscheps.github.io/humi">
+    <meta property="og:url" content="https://humi-standard.github.io/humi">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -296,9 +296,9 @@
             <h1>How much of your content is you?</h1>
             <p>Pick your level. Grab a badge. Show readers the effort behind your work.</p>
             <nav class="hero-nav">
-                <a href="https://github.com/fscheps/humi#the-scale">The Scale</a>
-                <a href="https://github.com/fscheps/humi#the-science-behind-humi">The Science</a>
-                <a href="https://github.com/fscheps/humi">★ Star on GitHub</a>
+                <a href="https://github.com/Humi-Standard/humi#the-scale">The Scale</a>
+                <a href="https://github.com/Humi-Standard/humi#the-science-behind-humi">The Science</a>
+                <a href="https://github.com/Humi-Standard/humi">★ Star on GitHub</a>
             </nav>
         </div>
     </header>
@@ -379,7 +379,7 @@
             <div class="card">
                 <div class="card-header"><h2>2 · Preview</h2></div>
                 <div id="previewArea" class="preview-area align-left">
-                    <a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" id="badgePreview" class="humi-badge l1">
+                    <a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" id="badgePreview" class="humi-badge l1">
                         <span class="humi-badge-level">HUMI 1</span>
                         <span class="humi-badge-divider"></span>
                         <span class="humi-badge-name">Human Led</span>
@@ -443,7 +443,7 @@
     </section>
 
     <footer class="footer">
-        <p>Created with ❤️ in <span class="swiss-dot"></span> Switzerland by <a href="https://x.com/fertech" target="_blank">Fernando Scheps</a> · <a href="https://github.com/fscheps/humi" target="_blank">View on GitHub</a></p>
+        <p>Created with ❤️ in <span class="swiss-dot"></span> Switzerland by <a href="https://x.com/fertech" target="_blank">Fernando Scheps</a> · <a href="https://github.com/Humi-Standard/humi" target="_blank">View on GitHub</a></p>
     </footer>
 
     <canvas id="export-canvas"></canvas>
@@ -497,26 +497,26 @@
             let htmlCode;
             if (isEditorial) {
                 htmlCode = showLink
-                    ? `<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:transparent;border:1px solid #d1d5db;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">\n    <span style="font-size:13px;font-weight:700;color:#374151;">${level.label}</span>\n    <span style="width:1px;height:16px;background:#d1d5db;"></span>\n    <span style="font-size:13px;font-weight:500;color:#6b7280;">${level.name}</span>\n    <span style="font-size:12px;color:#9ca3af;">↗</span>\n</a>`
+                    ? `<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:transparent;border:1px solid #d1d5db;border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">\n    <span style="font-size:13px;font-weight:700;color:#374151;">${level.label}</span>\n    <span style="width:1px;height:16px;background:#d1d5db;"></span>\n    <span style="font-size:13px;font-weight:500;color:#6b7280;">${level.name}</span>\n    <span style="font-size:12px;color:#9ca3af;">↗</span>\n</a>`
                     : `<div style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:transparent;border:1px solid #d1d5db;border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">\n    <span style="font-size:13px;font-weight:700;color:#374151;">${level.label}</span>\n    <span style="width:1px;height:16px;background:#d1d5db;"></span>\n    <span style="font-size:13px;font-weight:500;color:#6b7280;">${level.name}</span>\n</div>`;
             } else {
                 htmlCode = showLink
-                    ? `<a href="https://github.com/fscheps/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:${level.color};border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">\n    <span style="font-size:13px;font-weight:700;color:white;">${level.label}</span>\n    <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>\n    <span style="font-size:13px;font-weight:500;color:white;">${level.name}</span>\n    <span style="font-size:12px;color:rgba(255,255,255,0.7);">↗</span>\n</a>`
+                    ? `<a href="https://github.com/Humi-Standard/humi" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:${level.color};border-radius:8px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">\n    <span style="font-size:13px;font-weight:700;color:white;">${level.label}</span>\n    <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>\n    <span style="font-size:13px;font-weight:500;color:white;">${level.name}</span>\n    <span style="font-size:12px;color:rgba(255,255,255,0.7);">↗</span>\n</a>`
                     : `<div style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:${level.color};border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.12);">\n    <span style="font-size:13px;font-weight:700;color:white;">${level.label}</span>\n    <span style="width:1px;height:16px;background:rgba(255,255,255,0.3);"></span>\n    <span style="font-size:13px;font-weight:500;color:white;">${level.name}</span>\n</div>`;
             }
             document.getElementById('htmlCode').textContent = htmlCode;
             let mdCode;
             if (isEditorial) {
-                mdCode = showLink ? `**${level.label}** · ${level.name} [↗](https://github.com/fscheps/humi)` : `**${level.label}** · ${level.name}`;
+                mdCode = showLink ? `**${level.label}** · ${level.name} [↗](https://github.com/Humi-Standard/humi)` : `**${level.label}** · ${level.name}`;
             } else {
                 const c = level.color.replace('#','');
                 mdCode = showLink
-                    ? `[![${level.label}](https://img.shields.io/badge/${level.label.replace(' ','_')}-${level.name.replace(/ /g,'_')}-${c}?style=for-the-badge)](https://github.com/fscheps/humi)`
+                    ? `[![${level.label}](https://img.shields.io/badge/${level.label.replace(' ','_')}-${level.name.replace(/ /g,'_')}-${c}?style=for-the-badge)](https://github.com/Humi-Standard/humi)`
                     : `![${level.label}](https://img.shields.io/badge/${level.label.replace(' ','_')}-${level.name.replace(/ /g,'_')}-${c}?style=for-the-badge)`;
             }
             document.getElementById('markdownCode').textContent = mdCode;
             document.getElementById('textCode').textContent = showLink
-                ? `${level.label} · ${level.name} — Learn more: https://github.com/fscheps/humi`
+                ? `${level.label} · ${level.name} — Learn more: https://github.com/Humi-Standard/humi`
                 : `${level.label} · ${level.name}`;
         }
         function switchTab(tab) {
