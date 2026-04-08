@@ -18,7 +18,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.1-1565C0?style=for-the-badge" alt="Version 1.1">
   <img src="https://img.shields.io/badge/license-CC0_Public_Domain-2E7D32?style=for-the-badge" alt="License CC0">
-  <img src="https://img.shields.io/github/stars/fscheps/humi?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/github/stars/Humi-Standard/humi?style=for-the-badge" alt="Stars">
 </p>
 
 ---
