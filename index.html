@@ -49,14 +49,14 @@
                         radial-gradient(ellipse at 70% 80%, rgba(46,125,50,0.05) 0%, transparent 60%);
             pointer-events: none;
         }
-        .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
-        .hero-logo { height: 72px; margin-bottom: 20px; }
+        .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+        .hero-logo { height: 72px; margin-bottom: 10px; display: block; }
         .hero-version {
-            display: inline-block; font-size: 11px; font-weight: 600;
+            display: block; font-size: 11px; font-weight: 600;
             letter-spacing: 2px; text-transform: uppercase;
             color: rgba(255,255,255,0.4);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 5px 16px; border-radius: 100px; margin-bottom: 24px;
+            padding: 5px 16px; border-radius: 100px; margin: 0 auto 24px;
         }
         .hero h1 {
             font-size: 36px; font-weight: 700; line-height: 1.15;
