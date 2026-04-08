@@ -282,16 +282,16 @@ These biases mean that creators who invest real effort but use AI as a tool get 
 HUMI only works if people use it. Help us build the norm.
 
 <p align="center">
-  <a href="https://twitter.com/intent/tweet?text=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20an%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you.%0A%0A0%20%3D%20all%20you.%203%20%3D%20mostly%20AI.%0AGrounded%20in%20cognitive%20science.%20Free%2C%20open%20source%2C%20CC0.%0A%0Agithub.com%2Ffscheps%2Fhumi">
+  <a href="https://twitter.com/intent/tweet?text=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20an%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you.%0A%0A0%20%3D%20all%20you.%203%20%3D%20mostly%20AI.%0AGrounded%20in%20cognitive%20science.%20Free%2C%20open%20source%2C%20CC0.%0A%0Agithub.com%2FHumi-Standard%2Fhumi">
     <img src="https://img.shields.io/badge/Share_on-X-000000?style=for-the-badge&logo=x&logoColor=white" alt="Share on X">
   </a>&nbsp;
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2Ffscheps%2Fhumi">
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2FHumi-Standard%2Fhumi">
     <img src="https://img.shields.io/badge/Share_on-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn">
   </a>&nbsp;
-  <a href="https://reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Ffscheps%2Fhumi&title=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20An%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you">
+  <a href="https://reddit.com/submit?url=https%3A%2F%2Fgithub.com%2FHumi-Standard%2Fhumi&title=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20An%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you">
     <img src="https://img.shields.io/badge/Share_on-Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Share on Reddit">
   </a>&nbsp;
-  <a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Ffscheps%2Fhumi&t=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20An%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you">
+  <a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2FHumi-Standard%2Fhumi&t=HUMI%3A%20The%20Human%20Index%20%E2%80%94%20An%20open%20standard%20that%20shows%20how%20much%20of%20your%20content%20is%20you">
     <img src="https://img.shields.io/badge/Share_on-Hacker_News-F0652F?style=for-the-badge&logo=ycombinator&logoColor=white" alt="Share on Hacker News">
   </a>
 </p>
